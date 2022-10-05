@@ -21,6 +21,9 @@
     if (isset($_POST['submit'])) {
         $name = mysqli_real_escape_string($conn, $_POST['name']);
         $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $group = mysqli_real_escape_string($conn, $_POST['groupp']);
+        // $gender = mysqli_real_escape_string($conn, $_POST['gender']);
+        $father_number = mysqli_real_escape_string($conn, $_POST['father_number']);
         $password = mysqli_real_escape_string($conn, md5($_POST['password']));
         $confirm_password = mysqli_real_escape_string($conn, md5($_POST['confirm-password']));
         $code = mysqli_real_escape_string($conn, md5(rand()));
@@ -33,7 +36,7 @@
         } else {
             if ($password === $confirm_password) {
 
-                $sql = "INSERT INTO users (name, email, password, code,typee) VALUES ('{$name}', '{$email}', '{$password}', '{$code}','not')";
+                $sql = "INSERT INTO users (name, groupp,father_number,email,gender, password, code) VALUES ('{$name}', '{$group}','{$father_number}','{$email}', 'hell','{$password}', '{$code}')";
                 $queryy = mysqli_query($conn, "SELECT * FROM timee WHERE time_id");
 
                 $sqll = "INSERT INTO timee ( student_name,email,time , date) VALUES ('{$name}','{$email}', '{$tim}', '{$date}')";
@@ -131,6 +134,32 @@
                         <?php echo $msg; ?>
                         <form action="" method="post">
                             <input type="text" class="name" name="name" placeholder="Enter Your Name" value="<?php if (isset($_POST['submit'])) { echo $name; } ?>" required>
+                            <input type="text" class="p" name="groupp" placeholder="Enter Your Group" value="<?php if (isset($_POST['submit'])) { echo $group; } ?>" required>
+<!--                             
+                            <label for="Group" style="color: gray;">Group</label>
+                            <form name="groupp" action="<?php if (isset($_POST['submit'])){ echo $group;}?>">
+                                <select name="groupp" id="Group" style="background-color: #00C16E;color: white;border-radius: 6px;position: relative;text-align: center;right: -30%;margin-bottom: 20px;border: 1px solid;padding: 10px;">
+                                    <option value="sat1">السبت والثلاثاء 7.5</option>
+                                    <option value="sat2">السبت والثلاثاء 10.5</option>
+                                    <option value="sat3">السبت والثلاثاء 1</option>
+                                    <option value="sun1">الأحد والأربعاء 7.5</option>
+                                    <option value="sun2">الأحد والأربعاء 10.5</option>
+                                    <option value="sun3">الأحد والأربعاء 1</option>
+                                    <option value="mon1">الأثنين والخميس 7.5</option>
+                                    <option value="mon2">الأثنين والخميس 10.5</option>
+                                    <option value="mon3">الأثنين والخميس 1</option>
+                                </select>
+                            </form>
+
+                            <label for="gender" style="color: gray;">Gender</label>
+                            <form name="gender" action="<?php if (isset($_POST['submit'])){ echo $gender;}?>">
+                                <select name="department" id="gender" style="background-color: #00C16E;color: white;border-radius: 6px;position: relative;text-align: center;right: -52%;margin-bottom: 20px;border: 1px solid;padding: 10px;top: -60px;">
+                                    <option value="sat1">Male</option>
+                                    <option value="sat1">Femal</option>
+                                </select>
+                            <input type="submit" id="loginbtn" name="submit"/>
+                            </form> -->
+                            <input type="text" class="father_number" name="father_number" placeholder="Your Father Number" value="<?php if (isset($_POST['submit'])) { echo $group; } ?>" required>
                             <input type="email" class="email" name="email" placeholder="Enter Your Email" value="<?php if (isset($_POST['submit'])) { echo $email; } ?>" required>
                             <input type="password" class="password" name="password" placeholder="Enter Your Password" required>
                             <input type="password" class="confirm-password" name="confirm-password" placeholder="Enter Your Confirm Password" required>
