@@ -13,10 +13,16 @@
 
                                 //     echo "Welcome " . $row['name'] . " <a href='../signup/logout.php'>Logout</a>";
                                 // }
-                                
+?>
+<?php
+
+
+
+
                                 $queryy = mysqli_query($conn, "SELECT * FROM users WHERE email='{$_SESSION['SESSION_EMAIL']}'");
                                 $code = mysqli_query($conn, "SELECT * FROM users WHERE code='{$_SESSION['SESSION_EMAIL']}'");   
-?>
+
+?>  
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,9 +32,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/framework.css"/>
-    <link rel="stylesheet" href="../admin/css/master.css"/>
-    <link rel="stylesheet" href="../admin/css/all.min.css"/>
-    <link rel="stylesheet" href="../admin/css/normalize.css"/>
+    <link rel="stylesheet" href="../profile/css/master.css"/>
+    <link rel="stylesheet" href="css/all.min.css"/>
+    <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="shortcut icon" type="image/x-icon" href="../imgs/logo3.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -126,55 +132,47 @@
 
             </div>
             <!-- End Head -->
-            <h1 class="p-relative">Explanations</h1>
-            <div class="example-page d-grid m-20 gap-20">
-                <?php
-                    if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM users WHERE code=''")) > 0) {
-                        echo "<script>
-                        const element = document.getElementById('lo');
-                        const element2 = document.getElementById('lo2');
-                        const element3 = document.getElementById('lo3');
-                        element.remove();
-                        element2.remove();
-                        element3.remove();
-                            </script>";                 
-                    }
-                    else{
-                        echo "<script>
-                        const element = document.getElementById('ex');
-                        const element2 = document.getElementById('ex2');
-                        const element3 = document.getElementById('ex3');
-                        element.remove();
-                        element2.remove();
-                        element3.remove();
-                            </script>";
-                    }
-                ?>
-                <div class="course bg-white rad-6 p-relative">
-                    <?php
-			            require 'connect.php';
-			
-			            $query = mysqli_query($conn, "SELECT * FROM `videos`") or die(mysqli_error());
-			            while($fetch = mysqli_fetch_array($query)){
-                            $id= $fetch['id'];
-		            ?>
-                        <img class="cover" src="<?php echo $fetch['video_img']?>" alt="">                        
+            <h1 class="p-relative">Profile</h1>
+            <div class="profile-page m-20">
+                <div class="over-view bg-white rad-10 d-flex align-center">
+                    <div class="avatar-box">
+                        <img class="mb-10 rad-half" src="imgs/avatar.png" alt="">
+                        <h3 class="m-0">
+                            <?php
 
-                    <div class="p-20">
-                        <h4 class="m-0"><?php echo $fetch['video_name']?></h4>
-                        
+                                if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM users WHERE code=''")) > 0) {
+                                    echo "Verified";     
+                                    echo "<script>
+                                    const element = document.getElementById('lo');
+                                    const element2 = document.getElementById('lo2');
+                                    const element3 = document.getElementById('lo3');
+                                    element.remove();
+                                    element2.remove();
+                                    element3.remove();
+                                        </script>";                 
+                                }
+                                else{
+                                    echo  "Not Verified ";
+                                    echo "<script>
+                                    const element = document.getElementById('ex');
+                                    const element2 = document.getElementById('ex2');
+                                    const element3 = document.getElementById('ex3');
+                                    element.remove();
+                                    element2.remove();
+                                    element3.remove();
+                                        </script>";
+                                }
+                                
+                            ?>
+
+                        </h3>
+                        <p></p>
                     </div>
-                    <div class="view p-15 p-relative between-flex">
-                            <a href="watch.php?id=<?php echo  $id;?>"><span class="title bg-blue c-white btn-shape" style="padding: 4px 10px;border-radius: 6px;">Watch</span></a>
-                            <!-- echo "<h4><a href='watch.php?id=$id'>" .$name. $img. "</a></h4><br/>"; -->
-
+                    <div class="info-box">
+                        Info
                     </div>
-                    <br />
-                     <?php		
-
-                    }
-                    ?>
                 </div>
+
             </div>
            
         </div>
