@@ -60,7 +60,7 @@
             <div class="container">
                 <ul>
                 <li>
-                        <a class="active d-flex algin-center fs-14 c-black rad-6 p-10" href="dashboard.php">
+                        <a class="active d-flex algin-center fs-14 c-black rad-6 p-10" href="../profile/dashboard.php">
                         <i class="fa-solid fa-chart-bar fa-fw"></i>
                         
                         <span class="hide-mobile">Dashboard</span>
