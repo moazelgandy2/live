@@ -11,8 +11,7 @@
    
     <div class="container">
         <div class="text-box">
-            <p>RESET PASSWORD</p>
-            <h1>PLEAS CONTACT SUPPORT FOR HELP</h1>
+            <h1>PLLEASE CONTACT SUPPORT FOR HELP</h1>
             <h6>support@mail.com</h6>
             <div class="row">
                 <a href="../signup/index.php">SignIn &#x27F6</a>
