@@ -194,7 +194,7 @@
                                         <?php
                                             $rowww = mysqli_fetch_assoc($queryyy);
 
-                                            if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM users WHERE email='{$_SESSION['SESSION_EMAIL]}'&&typee='Admin'")) > 0) {
+                                            if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM users WHERE typee='Admin'")) > 0) {
                                                 $ms='Admin' ;
                                                 echo $ms;
                                                 
