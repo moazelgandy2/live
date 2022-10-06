@@ -241,7 +241,40 @@
   justify-content: space-between;
 }
 .btn-shape {
+  background-color: var(--blue-color);
+  color: white;
   padding: 4px 10px;
   border-radius: 6px;
+  border: 1px solid #EEE;
 }
 /* End Components */
+
+
+
+
+
+/* <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/css2/framework.css"/>
+    <link rel="stylesheet" href="../profile/css/css2/master.css"/>
+    <link rel="stylesheet" href="css/all.min.css"/>
+    <link rel="stylesheet" href="css/normalize.css"/>
+    <link rel="shortcut icon" type="image/x-icon" href="../imgs/logo3.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap" rel="stylesheet" />
+    <title>Fourth Dimention</title>
+    <meta http-equiv = "refresh" content = "1; url = ../profile/active.php" />
+
+</head>
+<body>
+    <div class="p-20" style="text-align: center;">
+        <p>You Will Be redircted after 1sec</p>
+        <h1><?php echo $ms;?></h1>
+    </div>
+</body>
+</html> */

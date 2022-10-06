@@ -81,9 +81,9 @@
                         </a>
                     </li>
                     <li>
-                        <a class="active d-flex algin-center fs-14 c-black rad-6 p-10" href="#">
+                        <a class="active d-flex algin-center fs-14 c-black rad-6 p-10" href="active.php">
                         <i class="fa-solid fa-cart-shopping"></i>
-                        <i class=" pl-10 fa-solid fa-lock" style="padding-left:10px ;"></i>
+                        <!-- <i class=" pl-10 fa-solid fa-lock" style="padding-left:10px ;"></i> -->
                         <span>Activating</span>
                         </a>
                     </li>
@@ -131,8 +131,9 @@
                         <span>Question</span>
                         </a>
                     </li>
+
                     <li id="ad">
-                        <a class=" d-flex algin-center fs-14 c-black rad-6 p-10" href="admin.php">
+                        <a class=" d-flex algin-center fs-14 c-black rad-6 p-10" href="../admin/dashboard.php">
                         <i class="fa-solid fa-gears"></i>
                         <span>Admin</span>
                         </a>
@@ -178,8 +179,8 @@
                                 if (mysqli_num_rows($query) > 0) {
                                             $row = mysqli_fetch_assoc($query);
                                             $t = mysqli_fetch_assoc($ti);
-                                            echo " " . $row['name']. " <a href='../signup/logout.php'>Logout</a>" ;
-                                           
+                                            echo " " . $row['name'] ;
+                                            // " <a href='../signup/logout.php'>Logout</a>"
                                         }
 
                             ?></p>
@@ -193,7 +194,7 @@
                                         <?php
                                             $rowww = mysqli_fetch_assoc($queryyy);
 
-                                            if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM users WHERE typee=''")) > 0) {
+                                            if (mysqli_num_rows(mysqli_query($conn, "SELECT * FROM users WHERE typee='Admin'")) > 0) {
                                                 $ms='Admin' ;
                                                 echo $ms;
                                                 

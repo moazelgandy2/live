@@ -1169,3 +1169,21 @@ ul {
   }
 }
 /* End Animation */
+/* Start ACtive Page */
+.activeac{
+  border: 1px solid gray ; 
+  padding: 7px;
+  margin-right: 100px; 
+}
+
+.btn-active{
+
+}
+
+@media(max-width:767px){
+  .btn-active{
+    margin-top: 20px;
+    margin-left: 30px;
+  }
+}
+/* End Active Page */

@@ -49,6 +49,17 @@
 
 
 
+
+<?php
+// $code = mysqli_query("SELECT code FROM `coupon` WHERE code");
+
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -83,13 +94,6 @@
                         <a class="active d-flex algin-center fs-14 c-black rad-6 p-10" href="profile.php">
                         <i class="fa-solid fa-user fa-fw"></i>                        
                         <span>Profile</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="active d-flex algin-center fs-14 c-black rad-6 p-10" href="active.php">
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <!-- <i class=" pl-10 fa-solid fa-lock" style="padding-left:10px ;"></i> -->
-                        <span>Activating</span>
                         </a>
                     </li>
                     <li id="ex">
@@ -167,8 +171,9 @@
           <!-- Start Overview -->
           <div class="overview bg-white rad-10 d-flex align-center">
             <div class="avatar-box txt-c p-20">
-              <img class="rad-half mb-10" src="imgs/avatar.png" alt="" />
-              <h3 class="m-0"><?php
+              <!-- <img class="rad-half mb-10" src="imgs/avatar.png" alt="" /> -->
+              <h2 class="c-grey">Name:</h2>
+              <h4 class="m-0"><?php
                                 if (mysqli_num_rows($query) > 0) {
                                             $row = mysqli_fetch_assoc($query);
                                             $t = mysqli_fetch_assoc($ti);
@@ -176,114 +181,67 @@
                                             // " <a href='../signup/logout.php'>Logout</a>"
                                         }
 
-                            ?></h3>
+                            ?></h4>
 
             </div>
             <div class="info-box w-full txt-c-mobile">
               <!-- Start Information Row -->
               <div class="box p-20 d-flex align-center">
                 <!-- <h4 class="c-grey fs-15 m-0 w-full">General Information</h4> -->
+
                 <div class="fs-14">
-                  <span class="c-grey">Full Name</span>
-                  <span><?php
-                                if (mysqli_num_rows($query2) > 0) {
-                                            $row2 = mysqli_fetch_assoc($query2);
-                                            echo " " . $row['name'] ;
-                                            // " <a href='../signup/logout.php'>Logout</a>"
-                                        }
 
-                            ?></span>
-                </div>
-                <div class="fs-14">
-                  <span class="c-grey">Country:</span>
-                  <span>Egypt</span>
-                </div>
-                <div class="fs-14">
-                  <span class="c-grey">Accout Status:</span>
-                  <span class="c-green" style="font-weight: 700;"><div id="not">
-                                        <?php
-
-                                            if ($t['active'] =="Yes") {
-                                                $ms='Actice' ;
-                                                echo $ms;
-                                                echo "<script>
-                                                const element = document.getElementById('lo');
-                                                const element2 = document.getElementById('lo2');
-                                                const element3 = document.getElementById('lo3');
-                                                element.remove();
-                                                element2.remove();
-                                                element3.remove();
-                                                </script>";                      
-                                            }
-                                            else{
-                                                $Color = "red";
-                                                $ms2= "Inactive";
-                                                echo '<div style="Color:'.$Color.'">'.$ms2.'</div>';
-
-                                                echo "<script>
-                                                const element = document.getElementById('ex');
-                                                const element2 = document.getElementById('ex2');
-                                                const element3 = document.getElementById('ex3');
-                                                element.remove();
-                                                element2.remove();
-                                                element3.remove();
-                                                </script>";
-                                            }
-
-
-                                        ?>
-                                    </div></span>
-                </div>
-
-              </div>
-              <!-- End Information Row -->
-              <!-- Start Information Row -->
-              <div class="box p-20 d-flex align-center">
-                <div class="fs-14">
-                  <span class="c-grey">Phone:</span>
-                  <span><p><?php
-                                if (mysqli_num_rows($query3) > 0) {
-                                            $row3 = mysqli_fetch_assoc($query3);
-                                            echo $row3['father_number'] ;
-                                            // " <a href='../signup/logout.php'>Logout</a>"
-                                        }
-
-                            ?></p></span>
-                </div>
-                <div class="fs-14">
-                  <span class="c-grey">Group:</span>
-                  <span>
-                    <?php
-                  
-                      if (mysqli_num_rows($query4) > 0) {
-                                  $row4 = mysqli_fetch_assoc($query4);
-                                  echo $row4['groupp'] ;
-                                  // " <a href='../signup/logout.php'>Logout</a>"
-                      }
-
-                    ?>
+                    <span class="c-grey"><h2>Accout Status:</h2></span>
+                    <span class="c-green" style="font-weight: 700;">
+                        <div id="not">
+                                <?php
+                                    if ($t['active'] =="Yes") {
+                                        $ms='Actice' ;
+                                        echo $ms;
+                                        echo "<script>
+                                        const element = document.getElementById('lo');
+                                        const element2 = document.getElementById('lo2');
+                                        const element3 = document.getElementById('lo3');
+                                        element.remove();
+                                        element2.remove();
+                                        element3.remove();
+                                        </script>";                      
+                                    }
+                                    else{
+                                        $Color = "red";
+                                        $ms2= "Inactive";
+                                        echo '<div style="Color:'.$Color.'">'.$ms2.'</div>';
+                                        echo "<script>
+                                        const element = document.getElementById('ex');
+                                        const element2 = document.getElementById('ex2');
+                                        const element3 = document.getElementById('ex3');
+                                        element.remove();
+                                        element2.remove();
+                                        element3.remove();
+                                        </script>";
+                                    }
+                                ?>
+                        </div>
                     </span>
                 </div>
-                <div class="fs-14">
-                  <span class="c-grey">Email:</span>
-                  <span><?php
-                  
-                  if (mysqli_num_rows($query5) > 0) {
-                              $row5 = mysqli_fetch_assoc($query5);
-                              echo $row5['email'] ;
-                              // " <a href='../signup/logout.php'>Logout</a>"
-                  }
-
-                ?></span>
-
-                </div>
 
               </div>
-              <!-- End Information Row -->
 
             </div>
           </div>
         </div>
+        <!-- Start Input Active Code -->
+        <div class="active overview bg-white rad-10 d-flex align-center p-20" id="ac">
+            <div class="inputdiv">
+                <form action="validatecode.php"  method="post">
+                    <input type="text" name="activeac" class="activeac rad-6 "  placeholder="Input Activating Code">
+                    <input type="submit" class="btn-shape btn-active">
+                </form>
+                    
+            </div>
+            </div>
+        <!-- End Input Active Code -->
+
       </div>
     </div>
 
