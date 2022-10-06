@@ -348,4 +348,9 @@ ul{
 }
 
 /* End Mobile */
+/* Admin */
+.table, th, td {
+    border: 1px solid;
+  }
+/* Admin */
 
